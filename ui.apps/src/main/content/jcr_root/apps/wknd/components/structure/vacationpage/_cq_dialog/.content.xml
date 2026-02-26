@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
     jcr:primaryType="nt:unstructured"
     jcr:title="Vacation Page Details"
-    sling:resourceType="cq/gui/components/authoring/dialog">
+    sling:resourceType="cq/gui/components/authoring/dialog"
+    extraClientlibs="[wknd.author]">
     <content
         jcr:primaryType="nt:unstructured"
         sling:resourceType="granite/ui/components/coral/foundation/container">
@@ -40,53 +41,11 @@
                                                 sling:resourceType="granite/ui/components/coral/foundation/form/select"
                                                 fieldLabel="Destination Type"
                                                 name="./destinationType">
-                                                <items jcr:primaryType="nt:unstructured">
-                                                    <beach
-                                                        jcr:primaryType="nt:unstructured"
-                                                        text="Beach"
-                                                        value="beach"/>
-                                                    <city
-                                                        jcr:primaryType="nt:unstructured"
-                                                        text="City"
-                                                        value="city"/>
-                                                    <mountain
-                                                        jcr:primaryType="nt:unstructured"
-                                                        text="Mountain"
-                                                        value="mountain"/>
-                                                    <adventure
-                                                        jcr:primaryType="nt:unstructured"
-                                                        text="Adventure"
-                                                        value="adventure"/>
-                                                    <cultural
-                                                        jcr:primaryType="nt:unstructured"
-                                                        text="Cultural"
-                                                        value="cultural"/>
-                                                    <wildlife
-                                                        jcr:primaryType="nt:unstructured"
-                                                        text="Wildlife"
-                                                        value="wildlife"/>
-                                                </items>
+                                                <datasource
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="acs-commons/components/utilities/genericlist/datasource"
+                                                    path="/etc/acs-commons/lists/wknd/destination-type"/>
                                             </destinationType>
-                                            <country
-                                                jcr:primaryType="nt:unstructured"
-                                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
-                                                fieldLabel="Country"
-                                                name="./country">
-                                                <items jcr:primaryType="nt:unstructured">
-                                                    <india
-                                                        jcr:primaryType="nt:unstructured"
-                                                        text="India"
-                                                        value="india"/>
-                                                    <usa
-                                                        jcr:primaryType="nt:unstructured"
-                                                        text="USA"
-                                                        value="usa"/>
-                                                    <uk
-                                                        jcr:primaryType="nt:unstructured"
-                                                        text="UK"
-                                                        value="uk"/>
-                                                </items>
-                                            </country>
                                         </items>
                                     </col1>
                                 </items>
@@ -112,51 +71,46 @@
                                                 sling:resourceType="granite/ui/components/coral/foundation/form/select"
                                                 fieldLabel="Recommended For"
                                                 name="./recommendedFor">
-                                                <items jcr:primaryType="nt:unstructured">
-                                                    <couples
-                                                        jcr:primaryType="nt:unstructured"
-                                                        text="Couples"
-                                                        value="couples"/>
-                                                    <families
-                                                        jcr:primaryType="nt:unstructured"
-                                                        text="Families"
-                                                        value="families"/>
-                                                    <solo
-                                                        jcr:primaryType="nt:unstructured"
-                                                        text="Solo"
-                                                        value="solo"/>
-                                                    <groups
-                                                        jcr:primaryType="nt:unstructured"
-                                                        text="Groups"
-                                                        value="groups"/>
-                                                    <seniors
-                                                        jcr:primaryType="nt:unstructured"
-                                                        text="Seniors"
-                                                        value="seniors"/>
-                                                </items>
+                                                <datasource
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="acs-commons/components/utilities/genericlist/datasource"
+                                                    path="/etc/acs-commons/lists/wknd/recommended-for"/>
                                             </recommendedFor>
                                             <ageRestriction
+                                                granite:class="cq-dialog-checkbox-showhide"
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
                                                 name="./ageRestriction"
                                                 text="Age Restrictions"
-                                                value="true"/>
+                                                uncheckedValue="{Boolean}false"
+                                                value="true">
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    cq-dialog-checkbox-showhide-target=".age-restrictions-details"/>
+                                            </ageRestriction>
                                             <ageRestrictionDetails
+                                                granite:class="age-restrictions-details"
                                                 jcr:primaryType="nt:unstructured"
-                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                                fieldLabel="Age Restriction Details"
-                                                name="./ageRestrictionDetails"/>
+                                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <ageRestrictionsText
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                        fieldLabel="Age restriction details"
+                                                        name="./ageRestrictionsText"/>
+                                                </items>
+                                            </ageRestrictionDetails>
                                             <wheelchairAccess
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
                                                 name="./wheelchairAccess"
                                                 text="Wheelchair Access"
                                                 value="true"/>
-                                            <parking
+                                            <parkingAvailable
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
-                                                name="./parking"
-                                                text="Parking"
+                                                name="./parkingAvailable"
+                                                text="Parking Available"
                                                 value="true"/>
                                         </items>
                                     </col1>
