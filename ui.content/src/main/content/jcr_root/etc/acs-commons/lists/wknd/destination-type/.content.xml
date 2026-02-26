@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2026-02-25T17:31:25.178+05:30"
+        cq:lastModifiedBy="admin"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[mix:versionable]"
+        jcr:primaryType="nt:unstructured"
+        jcr:title="Destination Type"
+        jcr:uuid="5ed11543-ca19-4f3e-9000-ea6c9042c01a"
+        sling:resourceType="acs-commons/components/utilities/genericlist">
+        <image
+            jcr:primaryType="nt:unstructured"
+            fileReference="/apps/acs-commons/components/utilities/genericlist/generic-list.png"/>
+        <list jcr:primaryType="nt:unstructured">
+            <item0
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Beach"
+                value="beach"/>
+            <item1
+                jcr:primaryType="nt:unstructured"
+                jcr:title="City"
+                value="city"/>
+            <item2
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Mountain"
+                value="mountain"/>
+            <item3
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Adventure"
+                value="adventure"/>
+            <item4
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Cultural"
+                value="cultural"/>
+            <item5
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Wildlife"
+                value="wildlife"/>
+        </list>
+    </jcr:content>
+</jcr:root>
