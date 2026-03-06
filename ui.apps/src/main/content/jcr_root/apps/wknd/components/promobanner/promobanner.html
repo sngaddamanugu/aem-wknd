@@ -1,0 +1,56 @@
+<sly data-sly-use.model="com.adobe.aem.guides.wknd.core.models.PromoBannerModel" />
+<sly data-sly-use.placeholderTemplate="core/wcm/components/commons/v1/templates.html" />
+
+<sly data-sly-set.bgType="${properties.backgroundType}" />
+<sly data-sly-set.isBgImage="${bgType == 'image'}" />
+<sly data-sly-set.isBgColor="${bgType == 'color' && properties.backgroundColor}" />
+ 
+<sly data-sly-set.bgClass="${isBgImage? 'promoBanner--image': (isBgColor? 'promoBanner--color': 'promoBanner--none')}" />
+ 
+<sly data-sly-set.bgStyle="${isBgColor ? 'background-color: {0};' : '' @ format=properties.backgroundColor}" />
+
+<div class="promoBanner ${bgClass}"
+     style="${bgStyle @ context='styleString'}">
+
+  <div data-sly-test="${properties.backgroundType == 'image'}"
+  	class="promoBanner__image-bg">
+    <img src="${model.bannerImage} "/>
+  </div>
+
+  <div class="promoBanner__content">
+  
+    <h2 class="promoBanner__heading" data-sly-test="${properties.heading}">
+      ${properties.heading}
+    </h2>
+
+    <h3 class="promoBanner__subHeading" data-sly-test="${properties.subHeading}">
+      ${properties.subHeading}
+    </h3>
+
+    <div class="promoBanner__description" data-sly-test="${properties.description}">
+      ${properties.description @ context='html'}
+    </div>
+
+    <div class="promoBanner__cta">
+
+    <div class="primary-button">
+        <sly data-sly-resource="${'primaryButton' @
+            resourceType='wknd/components/button',
+            decorationTagName='div'}">
+        </sly>
+    </div>
+
+    <div class="secondary-button">
+        <sly data-sly-resource="${'secondaryButton' @
+            resourceType='wknd/components/button',
+            decorationTagName='div'}">
+        </sly>
+    </div>
+
+</div>
+   
+</div>
+  
+</div>
+
+<sly data-sly-call="${placeholderTemplate.placeholder @ isEmpty=!properties.heading}" />
