@@ -1,0 +1,45 @@
+<sly data-sly-use.model="com.adobe.aem.guides.wknd.core.models.TripInfoAccordion" />
+<sly data-sly-use.placeholderTemplate="core/wcm/components/commons/v1/templates.html" />
+
+<div class="destination-type">
+  <strong class="destination-type__label">Destination Type:</strong>
+  <span class="destination-type__value">${model.destinationType}</span>
+</div>
+
+<sly data-sly-test="${model.contentType == 'faq'}">
+  <div class="trip-info-accordion">
+    <sly data-sly-list.faq="${model.faqList}">
+      <div class="faq-item">
+        <h3 class="faq-question">
+          ${faq.question}
+        </h3>
+        <div class="faq-answer">
+          ${faq.answer @ context='html'}
+        </div>
+      </div>
+    </sly>
+  </div>
+</sly>
+
+<sly data-sly-test="${model.contentType == 'grouped'}">
+  <div class="trip-info-accordion trip-info-accordion--grouped">
+    <sly data-sly-list.section="${model.sectionsList}">
+      <section class="accordion-section">
+        <h3 class="accordion-section__title">${section.sectionTitle}</h3>
+        <div class="accordion-section__summary">
+          ${section.sectionSummary @ context='html'}
+        </div>
+
+        <ul class="accordion-section__items">
+          <sly data-sly-list.item="${section.sectionItemList}">
+            <li class="section-item">
+              <strong class="section-item__title">${item.itemTitle}</strong>
+              <div class="section-item__detail">${item.itemDetail @ context='html'}</div>
+            </li>
+          </sly>
+        </ul>
+      </section>
+    </sly>
+  </div>
+</sly>
+<sly data-sly-call="${placeholderTemplate.placeholder @ isEmpty=!model.contentType}"></sly>
