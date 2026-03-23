@@ -2,7 +2,7 @@
     "scripts": [
         "create service user asset-service-user",
         "set ACL for asset-service-user",
-        "allow jcr:all on /",
+        "allow jcr:read on /content/dam/wknd",
         "end"
     ]
 }
