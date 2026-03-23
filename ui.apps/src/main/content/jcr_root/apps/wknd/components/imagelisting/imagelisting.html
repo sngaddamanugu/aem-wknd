@@ -1,0 +1,23 @@
+<sly data-sly-use.model="com.adobe.aem.guides.wknd.core.models.AssetListing"></sly>
+
+<sly data-sly-test="${model.assets}">
+
+    <div data-sly-list.category="${model.assets}">
+        <h2>Type: ${category}</h2>
+        
+        <ul data-sly-list.asset="${model.assets[category]}">
+            <li>
+                <p>
+                    <b>Title:</b>
+                    <a href="${asset.path}" target="_blank">
+                        ${asset.title}
+                    </a>
+                </p>
+                <p><b>Description:</b> ${asset.description}</p>
+                <p><b>Created Date:</b> ${asset.created}</p>
+                <p><b>Creator:</b> ${asset.creator}</p>
+                <p><b>Size:</b> ${asset.size}</p>
+            </li>
+        </ul>
+    </div>
+</sly>
