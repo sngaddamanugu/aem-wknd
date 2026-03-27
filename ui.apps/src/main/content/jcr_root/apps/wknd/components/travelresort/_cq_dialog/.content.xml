@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Travel Resort Component"
+    sling:resourceType="cq/gui/components/authoring/dialog"
+    extraClientlibs="[wknd.author]">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <configuration
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Configuration"
+                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <variation
+                                                granite:class="cq-dialog-showhide"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                fieldLabel="Variation"
+                                                name="./variation">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <manual
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Manual"
+                                                        value="manual"/>
+                                                    <dynamic
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Dynamic"
+                                                        value="dynamic"/>
+                                                </items>
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    cq-dialog-showhide-target=".content-type-showhidetargets"/>
+                                            </variation>
+                                            <contentype-list-container
+                                                granite:class="hide content-type-showhidetargets"
+                                                jcr:primaryType="nt:unstructured"
+                                                jcr:title="dynamic"
+                                                sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                margin="{Boolean}true">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <count
+                                                        granite:class="hide content-type-showhidetargets"
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/numberfield"
+                                                        fieldLabel="Number of Resorts"
+                                                        max="12"
+                                                        name="./count">
+                                                        <granite:data
+                                                            jcr:primaryType="nt:unstructured"
+                                                            showhidetargetvalue="dynamic"/>
+                                                    </count>
+                                                </items>
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    showhidetargetvalue="dynamic"/>
+                                            </contentype-list-container>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </configuration>
+                    <contentype-list-container
+                        granite:class="hide content-type-showhidetargets"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Manual"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <granite:data
+                            jcr:primaryType="nt:unstructured"
+                            showhidetargetvalue="manual"/>
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        granite:class="cq-RichText-FixedColumn-column"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <resort
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                                composite="{Boolean}true"
+                                                fieldLabel="Resort List">
+                                                <field
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                    name="./resortList">
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                        <resortPath
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                            fieldLabel="Resort Path"
+                                                            name="./resortPath"
+                                                            nodeTypes="dam:Asset"
+                                                            rootPath="/content/dam/wknd-shared"/>
+                                                    </items>
+                                                </field>
+                                            </resort>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </contentype-list-container>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>
