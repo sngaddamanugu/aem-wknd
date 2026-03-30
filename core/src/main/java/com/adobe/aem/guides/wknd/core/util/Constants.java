@@ -18,17 +18,30 @@ public final class Constants {
     // Background
     public static final String BACKGROUND_TYPE = "backgroundType";
     public static final String BACKGROUND_COLOR = "backgroundColor";
+    public static final String TRAVEL_RESORT_COMPONENT ="wknd/components/travelresort";
+
+    public static final String DATE_FORMAT= "yyyy-MM-dd'T'HH:mm:ss.SSSXXX";
+    public static final String FORMAT ="dd-MM-yy";
+    public static final String MANUAL ="manual";
+    public static final String DYNAMIC ="dynamic";
+    public static final String RESORT_PATH ="resortPath";
 
     // Image
     public static final String FILE_REFERENCE = "fileReference";
+    public static final String PATH ="path";
+    public static final String TRAVEL_CF= "/content/dam/wknd-shared/en/travel";
 
     // Buttons
     public static final String PRIMARY_BUTTON = "primaryButton";
     public static final String SECONDARY_BUTTON = "secondaryButton";
+    public static final String TYPE ="type";
+    public static final String DAM_ASSET = "dam:Asset";
 
     // Image Listing Component
     public static final String IMAGE_LISTING ="wknd/components/imagelisting";
     public static final String ASSET_SERVICE ="my-subservice";
+    public static final String ORDER_BY = "orderby";
+    public static final String DESCENDING_ORDER ="desc";
 
     //dam constants
     public static final String DC_TITLE = "dc:title";
@@ -38,11 +51,20 @@ public final class Constants {
     public static final String DC_FORMAT = "dc:format";
     public static final String CONTENT_METADATA = "jcr:content/metadata";
     public static final String DC_SIZE = "dam:size";
+    public static final String ORDER_BY_SORT = "orderby.sort";
+    public static final String LAST_MODIFIED = "@jcr:content/jcr:lastModified";
 
     //Workflows
     public static final String DAM_BASE_PATH ="/content/dam";
     public static final String WKND_BRAND_TAG ="brand:wknd-microsite";
     public static final String METADATA_PATH = "/jcr:content/metadata";
     public static final String CQ_TAGS = "cq:tags";
+    public static final String PROPERTY ="property";
+    public static final String PROPERTY_PATH ="jcr:content/data/cq:model";
+
+    public static final String PROPERTY_VALUE ="property.value";
+    public static final String PROPERTY_VALUE_PATH ="/conf/wknd-shared/settings/dam/cfm/models/travel-resort";
+
+    public static final String LIMIT ="p.limit";
 
 }

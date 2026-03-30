@@ -1,0 +1,41 @@
+<sly data-sly-use.model="com.adobe.aem.guides.wknd.core.models.TravelResortModel"></sly>
+
+<sly data-sly-test="${model.resorts}">
+    <div class="travel-resort">
+        <div class="resort-list" data-sly-list.resort="${model.resorts}">
+            <div class="resort-card">
+                <h2 class="resort-title">
+                    <strong>Resort Name:</strong> ${resort.resortName}
+                </h2>
+                
+                <p class="resort-location">
+                    <strong>Location:</strong>
+                    ${resort.city}, ${resort.state}, ${resort.country}
+                </p>
+                
+                <div class="resort-images" data-sly-test="${resort.heroImageGallery}">
+    				<div data-sly-list.img="${resort.heroImageGallery}">
+        				<img src="${img}" alt="Resort Image" class="resort-img"/>
+    				</div>
+				</div>
+                
+                <p class="resort-price">
+                    <strong>Nightly Rate Range:</strong>
+                    ${resort.currency} ${resort.min} - ${resort.max}
+                </p>
+                
+                <div class="resort-amenities">
+                    <strong>Amenities:</strong>
+                    <ul data-sly-list.amenity="${resort.amenities}">
+                        <li>${amenity}</li>
+                    </ul>
+                </div>
+                
+                <p class="resort-availability">
+                    <strong>Availability Window:</strong>
+                    ${resort.startDate} to ${resort.endDate}
+                </p>              
+            </div>
+        </div>
+    </div>
+</sly>
