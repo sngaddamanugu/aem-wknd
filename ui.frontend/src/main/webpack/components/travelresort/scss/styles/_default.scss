@@ -1,0 +1,82 @@
+/* Main container */
+.travel-resort {
+  padding: 30px;
+  background: #f5f7fa;
+}
+
+/* Grid layout */
+.resort-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 25px;
+}
+
+/* Card design */
+.resort-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect */
+.resort-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+
+/* Title */
+.resort-title {
+  font-size: 20px;
+  color: #1a1a1a;
+  margin-bottom: 10px;
+}
+
+/* Location */
+.resort-location {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+/* Images */
+.resort-images {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  margin-bottom: 10px;
+}
+
+.resort-img {
+  width: 120px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Price */
+.resort-price {
+  font-size: 16px;
+  font-weight: 600;
+  color: #046E38;
+  margin-bottom: 10px;
+}
+
+/* Amenities */
+.resort-amenities ul {
+  padding-left: 18px;
+  margin: 5px 0;
+}
+
+.resort-amenities li {
+  font-size: 14px;
+  color: #333;
+}
+
+/* Availability */
+.resort-availability {
+  font-size: 13px;
+  color: #777;
+  margin-top: 10px;
+}
