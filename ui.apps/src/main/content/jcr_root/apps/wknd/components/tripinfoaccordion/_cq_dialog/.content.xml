@@ -36,7 +36,7 @@
                                                 <items jcr:primaryType="nt:unstructured">
                                                     <faq
                                                         jcr:primaryType="nt:unstructured"
-                                                        text="FAQ"
+                                                        text="FAQ Accordion"
                                                         value="faq"/>
                                                     <grouped
                                                         jcr:primaryType="nt:unstructured"
@@ -115,7 +115,7 @@
                             </columns>
                         </items>
                     </contentype-faq-container>
-                    <contentype-accordion-container
+                    <contentype-grouped-container
                         granite:class="hide content-type-showhidetargets"
                         jcr:primaryType="nt:unstructured"
                         jcr:title="grouped"
@@ -206,7 +206,7 @@
                                 </items>
                             </columns>
                         </items>
-                    </contentype-accordion-container>
+                    </contentype-grouped-container>
                 </items>
             </tabs>
         </items>
