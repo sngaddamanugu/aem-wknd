@@ -1,4 +1,5 @@
 package com.adobe.aem.guides.wknd.core.models.impl;
+
 import com.adobe.aem.guides.wknd.core.models.TripInfoAccordion;
 import com.adobe.aem.guides.wknd.core.util.Constants;
 import com.day.cq.wcm.api.Page;
@@ -11,9 +12,13 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import java.util.List;
 import java.util.Objects;
-
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static com.adobe.aem.guides.wknd.core.util.Constants.DESTINATION_TYPE;
-import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(AemContextExtension.class)
 class TripInfoAccordionModelImplTest {
