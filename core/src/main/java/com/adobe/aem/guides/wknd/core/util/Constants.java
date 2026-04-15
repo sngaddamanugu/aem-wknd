@@ -66,5 +66,9 @@ public final class Constants {
     public static final String PROPERTY_VALUE_PATH ="/conf/global/settings/dam/cfm/models/travel-resort";
 
     public static final String LIMIT ="p.limit";
+    public static final String PROCESS_ARGS = "PROCESS_ARGS";
+    public static final String COMMA = ",";
+    public static final String EQUAL_TO = "=";
+    public static final String JCR_CONTENT = "/jcr:content";
 
 }
