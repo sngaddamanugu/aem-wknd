@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2026-02-25T17:31:25.178+05:30"
+        cq:lastModifiedBy="admin"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[mix:versionable]"
+        jcr:primaryType="nt:unstructured"
+        jcr:title="Recommended For"
+        jcr:uuid="070a9a55-f243-4931-9677-060be870df16"
+        sling:resourceType="acs-commons/components/utilities/genericlist">
+        <image
+            jcr:primaryType="nt:unstructured"
+            fileReference="/apps/acs-commons/components/utilities/genericlist/generic-list.png"/>
+        <list jcr:primaryType="nt:unstructured">
+            <item0
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Couples"
+                value="couples"/>
+            <item1
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Families"
+                value="families"/>
+            <item2
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Solo"
+                value="solo"/>
+            <item3
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Groups"
+                value="groups"/>
+            <item4
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Seniors"
+                value="seniors"/>
+        </list>
+    </jcr:content>
+</jcr:root>
