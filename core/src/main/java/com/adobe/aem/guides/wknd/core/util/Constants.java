@@ -23,4 +23,3 @@ public final class Constants {
     public static final String SECONDARY_BUTTON = "secondaryButton";
 
 }
-}
