@@ -11,6 +11,10 @@ public final class Constants {
     public static final String TRIP_INFO_ACCORDION = "wknd/components/tripinfoaccordion";
     public static final String DESTINATION_TYPE = "destinationType";
 
+    private Constants() {
+        // This constructor is intentionally empty. Nothing special is needed here.
+    }
+
     // Background
     public static final String BACKGROUND_TYPE = "backgroundType";
     public static final String BACKGROUND_COLOR = "backgroundColor";
@@ -21,5 +25,18 @@ public final class Constants {
     // Buttons
     public static final String PRIMARY_BUTTON = "primaryButton";
     public static final String SECONDARY_BUTTON = "secondaryButton";
+
+    // Image Listing Component
+    public static final String IMAGE_LISTING ="wknd/components/imagelisting";
+    public static final String ASSET_SERVICE ="my-subservice";
+
+    //dam constants
+    public static final String DC_TITLE = "dc:title";
+    public static final String DC_DESCRIPTION = "dc:description";
+    public static final String DC_CREATOR = "dc:creator";
+    public static final String DC_CREATED = "jcr:created";
+    public static final String DC_FORMAT = "dc:format";
+    public static final String CONTENT_METADATA = "jcr:content/metadata";
+    public static final String DC_SIZE = "dam:size";
 
 }
