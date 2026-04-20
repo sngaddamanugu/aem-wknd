@@ -6,7 +6,7 @@
     <jcr:content
         cq:lastModified="{Date}2026-03-30T14:55:35.999+05:30"
         cq:lastModifiedBy="admin"
-        cq:scaffolding="/conf/wknd-shared/settings/dam/cfm/models/travel-resort/jcr:content/model"
+        cq:scaffolding="/conf/global/settings/dam/cfm/models/travel-resort/jcr:content/model"
         cq:templateType="/libs/settings/dam/cfm/model-types/fragment"
         jcr:primaryType="cq:PageContent"
         jcr:title="Travel Resort"
