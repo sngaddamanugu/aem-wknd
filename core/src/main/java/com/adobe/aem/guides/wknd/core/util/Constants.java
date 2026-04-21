@@ -63,7 +63,7 @@ public final class Constants {
     public static final String PROPERTY_PATH ="jcr:content/data/cq:model";
 
     public static final String PROPERTY_VALUE ="property.value";
-    public static final String PROPERTY_VALUE_PATH ="/conf/wknd-shared/settings/dam/cfm/models/travel-resort";
+    public static final String PROPERTY_VALUE_PATH ="/conf/global/settings/dam/cfm/models/travel-resort";
 
     public static final String LIMIT ="p.limit";
 
