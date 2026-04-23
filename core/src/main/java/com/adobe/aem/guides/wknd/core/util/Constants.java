@@ -22,6 +22,7 @@ public final class Constants {
 
     public static final String DATE_FORMAT= "yyyy-MM-dd'T'HH:mm:ss.SSSXXX";
     public static final String FORMAT ="dd-MM-yy";
+    public static final String CAL_FORMAT ="dd MMM yyyy";
     public static final String MANUAL ="manual";
     public static final String DYNAMIC ="dynamic";
     public static final String RESORT_PATH ="resortPath";
