@@ -33,6 +33,9 @@ public class AssetListingImpl implements AssetListing{
     @ValueMapValue
     private String rootPath;
 
+    @ValueMapValue
+    private String assetType;
+
     @Self
     @Required
     private SlingHttpServletRequest request;
@@ -61,5 +64,9 @@ public class AssetListingImpl implements AssetListing{
     @Override
     public Map<String, List<AssetItem>> getAssets() {
         return assets;
+    }
+
+    public String getAssetType() {
+        return assetType != null ? assetType : "all";
     }
 }

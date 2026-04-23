@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2026-04-22T14:11:25.304+05:30"
+        cq:lastModifiedBy="admin"
+        jcr:primaryType="nt:unstructured"
+        jcr:title="Image Type"
+        sling:resourceType="acs-commons/components/utilities/genericlist">
+        <image
+            jcr:primaryType="nt:unstructured"
+            fileReference="/apps/acs-commons/components/utilities/genericlist/generic-list.png"/>
+        <list jcr:primaryType="nt:unstructured">
+            <item0
+                jcr:primaryType="nt:unstructured"
+                jcr:title="All"
+                value="all"/>
+            <item1
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Image"
+                value="image"/>
+            <item2
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Pdf"
+                value="pdf"/>
+            <item3
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Video"
+                value="video"/>
+        </list>
+    </jcr:content>
+</jcr:root>

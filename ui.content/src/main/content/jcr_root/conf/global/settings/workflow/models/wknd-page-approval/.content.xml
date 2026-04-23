@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:designPath="/libs/settings/wcm/designs/default"
+        cq:lastModified="{Date}2026-04-15T13:14:19.844+05:30"
+        cq:lastModifiedBy="sachin-content-reviewer"
+        cq:template="/libs/cq/workflow/templates/model"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="WKND-Page-Approval"
+        sling:resourceType="cq/workflow/components/pages/model"
+        lastSynced="{Date}2026-04-15T13:15:45.529+05:30">
+        <flow
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="foundation/components/parsys">
+            <participant
+                jcr:created="{Date}2026-04-10T12:07:22.155+05:30"
+                jcr:createdBy="admin"
+                jcr:description="sending content for review"
+                jcr:lastModified="{Date}2026-04-14T21:38:42.469+05:30"
+                jcr:lastModifiedBy="sachin-content-author"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Request for content Review"
+                sling:resourceType="cq/workflow/components/model/participant">
+                <metaData
+                    jcr:primaryType="nt:unstructured"
+                    DO_NOTIFY="true"
+                    PARTICIPANT="wknd-group"/>
+            </participant>
+            <process_copy_copy
+                jcr:created="{Date}2026-04-13T11:28:40.207+05:30"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2026-04-14T21:06:28.016+05:30"
+                jcr:lastModifiedBy="sachin-content-reviewer"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="In Review"
+                sling:resourceType="cq/workflow/components/model/process">
+                <metaData
+                    jcr:primaryType="nt:unstructured"
+                    PROCESS="com.adobe.aem.guides.wknd.core.workflows.SetPageApprovalProcess"
+                    PROCESS_ARGS="pageStatus=Approval_Is_Pending,reviewedBy=Reviewer"
+                    PROCESS_AUTO_ADVANCE="true"/>
+            </process_copy_copy>
+            <participant_copy
+                jcr:created="{Date}2026-04-10T12:07:22.155+05:30"
+                jcr:createdBy="admin"
+                jcr:description="Set Approval Status"
+                jcr:lastModified="{Date}2026-04-15T00:09:21.233+05:30"
+                jcr:lastModifiedBy="sachin-content-reviewer"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Approval Status"
+                sling:resourceType="cq/workflow/components/model/participant">
+                <metaData
+                    jcr:primaryType="nt:unstructured"
+                    DO_NOTIFY="true"
+                    PARTICIPANT="wknd-group"/>
+            </participant_copy>
+            <or_copy_copy_copy_co
+                jcr:created="{Date}2026-04-10T12:08:49.154+05:30"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2026-04-13T14:57:15.998+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="cq/workflow/components/model/or"
+                branches="3"
+                branchName1="Approve"
+                branchName2="Request Changes"
+                branchName3="Reject"
+                branchOrder="[0,1,2]"
+                default1="true"
+                orSplit="true">
+                <_x0033_
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="cq/flow/components/parsys">
+                    <process_copy_copy_co
+                        jcr:created="{Date}2026-04-13T11:28:40.207+05:30"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2026-04-14T21:16:05.231+05:30"
+                        jcr:lastModifiedBy="sachin-content-reviewer"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Set Page Status to Rejected"
+                        sling:resourceType="cq/workflow/components/model/process">
+                        <metaData
+                            jcr:primaryType="nt:unstructured"
+                            PROCESS="com.adobe.aem.guides.wknd.core.workflows.SetPageApprovalProcess"
+                            PROCESS_ARGS="pageStatus=Rejected,reviewedBy=Reviewer"
+                            PROCESS_AUTO_ADVANCE="true"/>
+                    </process_copy_copy_co>
+                </_x0033_>
+                <_x0031_
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="cq/flow/components/parsys">
+                    <process_copy
+                        jcr:created="{Date}2026-04-13T11:28:40.207+05:30"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2026-04-14T21:15:07.360+05:30"
+                        jcr:lastModifiedBy="sachin-content-reviewer"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Set Page Status to Approved"
+                        sling:resourceType="cq/workflow/components/model/process">
+                        <metaData
+                            jcr:primaryType="nt:unstructured"
+                            PROCESS="com.adobe.aem.guides.wknd.core.workflows.SetPageApprovalProcess"
+                            PROCESS_ARGS="pageStatus=Approved,reviewedBy=Reviewer"
+                            PROCESS_AUTO_ADVANCE="true"/>
+                    </process_copy>
+                    <process_copy_copy_co
+                        jcr:created="{Date}2026-04-10T12:17:15.081+05:30"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2026-04-10T12:17:35.564+05:30"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Activate Page"
+                        sling:resourceType="cq/workflow/components/model/process">
+                        <metaData jcr:primaryType="nt:unstructured"/>
+                    </process_copy_copy_co>
+                </_x0031_>
+                <_x0032_
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="cq/flow/components/parsys">
+                    <process_copy_copy
+                        jcr:created="{Date}2026-04-13T11:28:40.207+05:30"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2026-04-14T21:15:27.892+05:30"
+                        jcr:lastModifiedBy="sachin-content-reviewer"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Set Page Status to Changes Requested"
+                        sling:resourceType="cq/workflow/components/model/process">
+                        <metaData
+                            jcr:primaryType="nt:unstructured"
+                            PROCESS="com.adobe.aem.guides.wknd.core.workflows.SetPageApprovalProcess"
+                            PROCESS_ARGS="pageStatus=Changes_Requested,reviewedBy=Reviewer"
+                            PROCESS_AUTO_ADVANCE="true"/>
+                    </process_copy_copy>
+                    <participant_38120868
+                        jcr:created="{Date}2026-04-10T12:17:54.294+05:30"
+                        jcr:createdBy="admin"
+                        jcr:description="reviewer is requesting the change"
+                        jcr:lastModified="{Date}2026-04-15T13:14:19.818+05:30"
+                        jcr:lastModifiedBy="sachin-content-reviewer"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Notify Author"
+                        sling:resourceType="cq/workflow/components/model/participant">
+                        <metaData
+                            jcr:primaryType="nt:unstructured"
+                            DO_NOTIFY="true"
+                            PARTICIPANT="administrators"/>
+                    </participant_38120868>
+                    <goto
+                        jcr:created="{Date}2026-04-14T21:34:13.346+05:30"
+                        jcr:createdBy="sachin-content-author"
+                        jcr:description="Re-submitting the page for content review"
+                        jcr:lastModified="{Date}2026-04-14T21:49:34.257+05:30"
+                        jcr:lastModifiedBy="sachin-content-reviewer"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Resubmit"
+                        sling:resourceType="cq/workflow/components/model/goto">
+                        <metaData
+                            jcr:primaryType="nt:unstructured"
+                            PROCESS="com.adobe.granite.workflow.core.process.GotoProcess"
+                            PROCESS_AUTO_ADVANCE="false"
+                            script="function check(){&#xd;&#xa;return true;&#xd;&#xa;}"
+                            TARGET_NODE_PATH="/conf/global/settings/workflow/models/wknd-page-approval/jcr:content/flow/participant"/>
+                    </goto>
+                </_x0032_>
+            </or_copy_copy_copy_co>
+        </flow>
+    </jcr:content>
+</jcr:root>

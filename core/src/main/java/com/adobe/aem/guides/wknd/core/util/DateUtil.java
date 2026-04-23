@@ -3,6 +3,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
 import static com.adobe.aem.guides.wknd.core.util.Constants.DATE_FORMAT;
@@ -28,6 +29,22 @@ public class DateUtil {
         catch (ParseException e) {
             LOG.error("Error parsing date: {}", inputDate, e);
             return inputDate;
+        }
+    }
+
+    public static String getDisplayDate(Calendar inputDate, String outputFormat) {
+
+        if (inputDate == null) {
+            return "";
+        }
+        try {
+            Date date = inputDate.getTime();
+            SimpleDateFormat displayFormat = new SimpleDateFormat(outputFormat);
+            displayFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
+            return displayFormat.format(date);
+        } catch (Exception e) {
+            LOG.error("Error formatting calendar date", e);
+            return "";
         }
     }
 }
