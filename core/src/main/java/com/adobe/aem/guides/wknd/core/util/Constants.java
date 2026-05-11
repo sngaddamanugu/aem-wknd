@@ -40,7 +40,7 @@ public final class Constants {
 
     // Image Listing Component
     public static final String IMAGE_LISTING ="wknd/components/imagelisting";
-    public static final String ASSET_SERVICE ="my-subservice";
+    public static final String ASSET_SERVICE ="asset-service";
     public static final String ORDER_BY = "orderby";
     public static final String DESCENDING_ORDER ="desc";
 
