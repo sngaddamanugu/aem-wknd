@@ -1,4 +1,12 @@
 package com.adobe.aem.guides.wknd.core.util;
+import com.adobe.granite.workflow.metadata.MetaDataMap;
+import org.apache.commons.lang3.StringUtils;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+import static com.adobe.aem.guides.wknd.core.util.Constants.*;
 
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
@@ -10,6 +18,21 @@ import static com.adobe.aem.guides.wknd.core.util.Constants.DC_SIZE;
 public class AssetUtil {
 
     private AssetUtil() {
+    }
+
+    public static Map<String, String> buildArguments(MetaDataMap args) {
+        if (args != null && args.containsKey(PROCESS_ARGS)) {
+            String argumentsString = args.get(PROCESS_ARGS, String.class);
+            if (StringUtils.isNotBlank(argumentsString)) {
+                String[] arguments = StringUtils.split(argumentsString, COMMA);
+                return Arrays.stream(arguments)
+                        .map(String::trim)
+                        .map(s -> s.split(EQUAL_TO))
+                        .filter(arr -> arr.length == 2)
+                        .collect(Collectors.toMap(arr -> arr[0], arr -> arr[1]));
+            }
+        }
+        return Collections.emptyMap();
     }
 
     public static ValueMap getAssetMetadataMap(String assetPath, ResourceResolver resolver) {

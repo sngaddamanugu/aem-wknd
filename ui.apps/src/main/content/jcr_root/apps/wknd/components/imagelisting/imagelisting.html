@@ -1,23 +1,44 @@
 <sly data-sly-use.model="com.adobe.aem.guides.wknd.core.models.AssetListing"></sly>
-
 <sly data-sly-test="${model.assets}">
 
     <div data-sly-list.category="${model.assets}">
-        <h2>Type: ${category}</h2>
-        
-        <ul data-sly-list.asset="${model.assets[category]}">
-            <li>
-                <p>
-                    <b>Title:</b>
-                    <a href="${asset.path}" target="_blank">
-                        ${asset.title}
-                    </a>
-                </p>
-                <p><b>Description:</b> ${asset.description}</p>
-                <p><b>Created Date:</b> ${asset.created}</p>
-                <p><b>Creator:</b> ${asset.creator}</p>
-                <p><b>Size:</b> ${asset.size}</p>
-            </li>
-        </ul>
+        <sly data-sly-set.hasMatch="false"></sly>
+        <sly data-sly-list.assetCheck="${model.assets[category]}">
+            <sly data-sly-set.hasMatch="${
+                hasMatch ||model.assetType == 'all' ||(model.assetType == 'image' &&
+                    (assetCheck.type == 'jpeg' || assetCheck.type == 'png' || assetCheck.type == 'svg+xml')) ||
+                    (model.assetType == 'pdf' && assetCheck.type == 'pdf') ||
+                    (model.assetType == 'video' && assetCheck.type == 'mp4')}">
+            </sly>
+        </sly>
+
+        <sly data-sly-test="${hasMatch}">
+            <h2>Type: ${category}</h2>
+            <div class="card-container" data-sly-list.asset="${model.assets[category]}">
+                <sly data-sly-set.show="${ model.assetType == 'all' ||
+                (model.assetType == 'image' &&(asset.type == 'jpeg' || asset.type == 'png' || asset.type == 'svg+xml')) ||
+                (model.assetType == 'pdf' && asset.type == 'pdf') ||
+                (model.assetType == 'video' && asset.type == 'mp4')}">
+                </sly>
+                <sly data-sly-test="${show}">
+                    <div class="asset-card">
+                        <sly data-sly-test="${asset.type == 'jpeg' || asset.type == 'png' || asset.type == 'svg+xml'}">
+                            <img src="${asset.path}" class="card-image" alt="${asset.title}" />
+                        </sly>
+                        <div class="card-body">
+                            <p><b>Title:</b>
+                                <a href="${asset.path}" target="_blank">
+                                    ${asset.title}
+                                </a>
+                            </p>
+                            <p><b>Description:</b> ${asset.description}</p>
+                            <p><b>Created:</b> ${asset.created}</p>
+                            <p><b>Creator:</b> ${asset.creator}</p>
+                            <p><b>Size:</b> ${asset.size}</p>
+                        </div>
+                    </div>
+                </sly>
+            </div>
+        </sly>
     </div>
 </sly>

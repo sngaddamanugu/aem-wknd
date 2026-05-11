@@ -5,6 +5,7 @@ import com.adobe.aem.guides.wknd.core.dtos.AssetItem;
 import com.adobe.aem.guides.wknd.core.services.AssetListingService;
 import com.adobe.aem.guides.wknd.core.util.AssetUtil;
 
+import com.adobe.aem.guides.wknd.core.util.DateUtil;
 import com.day.cq.search.PredicateGroup;
 import com.day.cq.search.Query;
 import com.day.cq.search.QueryBuilder;
@@ -25,8 +26,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import static com.adobe.aem.guides.wknd.core.util.Constants.*;
+import java.util.Calendar;
+import static com.adobe.aem.guides.wknd.core.util.Constants.ASSET_SERVICE;
+import static com.adobe.aem.guides.wknd.core.util.Constants.DC_DESCRIPTION;
+import static com.adobe.aem.guides.wknd.core.util.Constants.DC_TITLE;
+import static com.adobe.aem.guides.wknd.core.util.Constants.DC_CREATED;
+import static com.adobe.aem.guides.wknd.core.util.Constants.DC_CREATOR;
+import static com.adobe.aem.guides.wknd.core.util.Constants.DC_FORMAT;
+import static com.adobe.aem.guides.wknd.core.util.Constants.CAL_FORMAT;
 
 @Component(service = AssetListingService.class, immediate = true)
 @Designate(ocd = AssetListingConfig.class)
@@ -101,7 +108,8 @@ public class AssetListingServiceImpl implements AssetListingService {
         String size = AssetUtil.getAssetSize(metadataMap);
 
         ValueMap assetMap = assetResource.getValueMap();
-        String created = assetMap.get(DC_CREATED, "");
+        Calendar createdCal = assetMap.get(DC_CREATED, Calendar.class);
+        String created = DateUtil.getDisplayDate(createdCal, CAL_FORMAT);
 
         String fileFormat = AssetUtil.getValue(metadataMap,DC_FORMAT, "");
         fileFormat= fileFormat.split("/")[1];

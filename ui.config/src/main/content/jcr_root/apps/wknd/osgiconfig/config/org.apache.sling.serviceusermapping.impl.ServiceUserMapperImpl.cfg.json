@@ -1,5 +1,5 @@
 {
   "user.mapping":[
-    "aem-guides-wknd.core:my-subservice=asset-service-user"
+    "aem-guides-wknd.core:asset-service=[asset-service-user]"
   ]
 }

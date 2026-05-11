@@ -1,8 +1,5 @@
 {
     "scripts": [
-        "create service user asset-service-user",
-        "set ACL for asset-service-user",
-        "allow jcr:read on /content/dam/wknd",
-        "end"
+        "create service user asset-service-user\nset ACL for asset-service-user\n  allow jcr:read on /content/dam/wknd\nend"
     ]
 }

@@ -22,6 +22,7 @@ public final class Constants {
 
     public static final String DATE_FORMAT= "yyyy-MM-dd'T'HH:mm:ss.SSSXXX";
     public static final String FORMAT ="dd-MM-yy";
+    public static final String CAL_FORMAT ="dd MMM yyyy";
     public static final String MANUAL ="manual";
     public static final String DYNAMIC ="dynamic";
     public static final String RESORT_PATH ="resortPath";
@@ -39,7 +40,7 @@ public final class Constants {
 
     // Image Listing Component
     public static final String IMAGE_LISTING ="wknd/components/imagelisting";
-    public static final String ASSET_SERVICE ="my-subservice";
+    public static final String ASSET_SERVICE ="asset-service";
     public static final String ORDER_BY = "orderby";
     public static final String DESCENDING_ORDER ="desc";
 
@@ -66,5 +67,9 @@ public final class Constants {
     public static final String PROPERTY_VALUE_PATH ="/conf/global/settings/dam/cfm/models/travel-resort";
 
     public static final String LIMIT ="p.limit";
+    public static final String PROCESS_ARGS = "PROCESS_ARGS";
+    public static final String COMMA = ",";
+    public static final String EQUAL_TO = "=";
+    public static final String JCR_CONTENT = "/jcr:content";
 
 }
